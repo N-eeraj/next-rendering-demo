@@ -1,5 +1,6 @@
 import Benefits from "@/components/Benefits"
 import Navigation from "@/components/Navigation"
+import PokemonDemoCard from "@/components/PokemonDemoCard"
 import Title from "@/components/Title"
 
 const BENEFITS = [
@@ -15,10 +16,6 @@ async function fetchRandomPokemon() {
 }
 
 async function BuildTimeFetchSSG() {
-  const dateTime = new Date().toLocaleString("en-IN", {
-    dateStyle: "long",
-    timeStyle: "short",
-  })
   const pokemon = await fetchRandomPokemon()
 
   return (
@@ -45,24 +42,11 @@ async function BuildTimeFetchSSG() {
         This strategy is ideal for content that depends on external data but changes infrequently.
       </p>
 
-      <section className="mt-12 rounded-lg border border-gray-200 bg-gray-50 p-6 text-center">
-        <p className="mb-4 text-gray-700">
-          Build Time:&nbsp;
-          <time className="font-mono text-gray-900">
-            {dateTime}
-          </time>
-        </p>
-        <div className="inline-block rounded overflow-hidden border border-gray-200">
-          <img
-            src={pokemon.sprites.other["official-artwork"].front_default}
-            alt={pokemon.name}
-            className="w-32 h-32 object-contain bg-white"
-          />
-        </div>
-        <p className="mt-4 text-sm text-gray-500">
-          Random Pokémon fetched at build time
-        </p>
-      </section>
+      <PokemonDemoCard
+        label="Build Time"
+        pokemon={pokemon}>
+        Random Pokémon fetched at build time
+      </PokemonDemoCard>
 
       <Navigation
         previous="/ssg/static"
