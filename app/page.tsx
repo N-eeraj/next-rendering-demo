@@ -39,7 +39,7 @@ function Home() {
           <li key={index}>
             <Link
               href={url}
-              className="hover:text-sky-400 hover:underline">
+              className="hover:text-sky-700 hover:underline">
               {label}
             </Link>
           </li>
