@@ -1,3 +1,7 @@
+import Benefits from "@/components/Benefits"
+import Navigation from "@/components/Navigation"
+import Title from "@/components/Title"
+
 const BENEFITS = [
   "No data fetching",
   "No revalidation",
@@ -8,12 +12,9 @@ const BENEFITS = [
 function StaticSSG() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="mb-6 text-3xl font-bold tracking-tight text-gray-900">
-        Static Site Generation (SSG)
-        <span className="block text-lg font-medium text-gray-500">
-          Static Content Only
-        </span>
-      </h1>
+      <Title
+        heading="Static Site Generation (SSG)"
+        tagline="Static Content Only" />
 
       <p className="mb-4 text-gray-700">
         This page is fully generated at build time and contains no dynamic data.
@@ -27,20 +28,15 @@ function StaticSSG() {
         &nbsp;and then served as a static file for every request.
       </p>
 
-      <ul className="mb-8 space-y-3 rounded-lg border border-gray-200 bg-gray-50 p-6">
-        {BENEFITS.map((content, index) => (
-          <li
-            key={index}
-            className="flex items-center gap-2 text-gray-800">
-            <span className="text-green-500">✔</span>
-            {content}
-          </li>
-        ))}
-      </ul>
+      <Benefits benefits={BENEFITS} />
 
       <p className="text-sm text-gray-500">
         This represents the simplest and fastest rendering strategy in Next.js.
       </p>
+
+      <Navigation
+        next="/ssg/build-time-fetch"
+      />
     </main>
   )
 }

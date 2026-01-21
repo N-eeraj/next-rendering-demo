@@ -1,3 +1,7 @@
+import Benefits from "@/components/Benefits"
+import Navigation from "@/components/Navigation"
+import Title from "@/components/Title"
+
 const BENEFITS = [
   "Data is fetched at build time",
   "No data fetching at request time",
@@ -19,12 +23,9 @@ async function BuildTimeFetchSSG() {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="mb-6 text-3xl font-bold tracking-tight text-gray-900">
-        Static Site Generation (SSG)
-        <span className="block text-lg font-medium text-gray-500">
-          Build-Time Data Fetching
-        </span>
-      </h1>
+      <Title
+        heading="Static Site Generation (SSG)"
+        tagline="Build-Time Data Fetching" />
 
       <p className="mb-4 text-gray-700">
         This page is generated at build time and includes data fetched during the build process.
@@ -38,16 +39,7 @@ async function BuildTimeFetchSSG() {
         &nbsp;runs, and the resulting HTML is saved as a static file. Every user receives the same pre-rendered HTML until the site is rebuilt.
       </p>
 
-      <ul className="mb-8 space-y-3 rounded-lg border border-gray-200 bg-gray-50 p-6">
-        {BENEFITS.map((content, index) => (
-          <li
-            key={index}
-            className="flex items-center gap-2 text-gray-800">
-            <span className="text-green-500">✔</span>
-            {content}
-          </li>
-        ))}
-      </ul>
+      <Benefits benefits={BENEFITS} />
 
       <p className="text-sm text-gray-500">
         This strategy is ideal for content that depends on external data but changes infrequently.
@@ -71,6 +63,11 @@ async function BuildTimeFetchSSG() {
           Random Pokémon fetched at build time
         </p>
       </section>
+
+      <Navigation
+        previous="/ssg/static"
+        next="/isr"
+      />
     </main>
   )
 }

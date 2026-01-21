@@ -29,17 +29,27 @@ const RENDERING_OPTIONS = [
 
 function Home() {
   return (
-    <main>
-      <h1 className="text-2xl md:text-3xl font-semibold">
+    <main className="mx-auto max-w-3xl px-6 py-16">
+      <h1 className="mb-8 text-3xl font-bold tracking-tight text-gray-900">
         React Rendering Demo
       </h1>
 
-      <ol className="ml-5 list-decimal">
+      <p className="mb-8 text-gray-700">
+        Next.js offers multiple page rendering strategies, each optimized for different use cases. 
+        This demo showcases how pages can be rendered, when data is fetched, and what the resulting 
+        HTML looks like for users. Explore each page to see the differences in static, server-side, 
+        incremental, and client-driven rendering.
+      </p>
+
+      <ol className="space-y-4">
         {RENDERING_OPTIONS.map(({ label, url }, index) => (
-          <li key={index}>
+          <li
+            key={index}
+            className="border border-gray-200 rounded-lg bg-gray-50 hover:bg-sky-50 transition">
             <Link
               href={url}
-              className="hover:text-sky-700 hover:underline">
+              className="block size-full p-4 text-gray-800 font-medium hover:text-sky-700 hover:underline"
+            >
               {label}
             </Link>
           </li>
