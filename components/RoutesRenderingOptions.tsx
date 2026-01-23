@@ -7,11 +7,13 @@ interface Props extends PropsWithChildren {
     label: string
     url: string
   }>
+  className?: string
 }
 
-function RoutesRenderingOptions({ title, options, children }: Props) {
+function RoutesRenderingOptions({ title, options, className, children }: Props) {
   return (
-    <section className="space-y-2">
+    <section
+      className={`space-y-2 ${className}`}>
       <h2 className="text-2xl font-semibold text-gray-700">
         {title}
       </h2>
