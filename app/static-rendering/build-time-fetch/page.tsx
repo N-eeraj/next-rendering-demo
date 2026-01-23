@@ -15,13 +15,13 @@ async function fetchRandomPokemon() {
   return await response.json()
 }
 
-async function BuildTimeFetchSSG() {
+async function StaticRenderingBuildTimeFetch() {
   const pokemon = await fetchRandomPokemon()
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       <Title
-        heading="Static Site Generation (SSG)"
+        heading="Static Rendering with Build-Time Data"
         tagline="Build-Time Data Fetching" />
 
       <p className="mb-4 text-gray-700">
@@ -49,11 +49,11 @@ async function BuildTimeFetchSSG() {
       </PokemonDemoCard>
 
       <Navigation
-        previous="/ssg/static"
-        next="/isr"
+        previous="/static-rendering"
+        next="/static-rendering/isr"
       />
     </main>
   )
 }
 
-export default BuildTimeFetchSSG
+export default StaticRenderingBuildTimeFetch

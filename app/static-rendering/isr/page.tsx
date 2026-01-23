@@ -17,13 +17,13 @@ async function fetchRandomPokemon() {
   return await response.json()
 }
 
-async function ISR() {
+async function StaticRenderingISR() {
   const pokemon = await fetchRandomPokemon()
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       <Title
-        heading="Incremental Static Regeneration (ISR)"
+        heading="Static Rendering with ISR"
         tagline="Pre-rendered with Background Updates" />
 
 
@@ -49,11 +49,11 @@ async function ISR() {
       </PokemonDemoCard>
 
       <Navigation
-        previous="/ssg/build-time-fetch"
-        next="/ssr"
+        previous="/static-rendering/build-time-fetch"
+        next="/dynamic-rendering"
       />
     </main>
   )
 }
 
-export default ISR
+export default StaticRenderingISR

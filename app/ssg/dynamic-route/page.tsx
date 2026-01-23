@@ -1,7 +1,7 @@
-import { getStaticPaths } from "./getStaticPages"
+import { getStaticParams } from "./getStaticParams"
 
 async function page() {
-  const paths = await getStaticPaths()
+  const paths = await getStaticParams()
 
   return (
     <main>

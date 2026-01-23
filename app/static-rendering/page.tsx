@@ -9,11 +9,11 @@ const BENEFITS = [
   "Same HTML for every user",
 ]
 
-function StaticSSG() {
+function StaticRendering() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       <Title
-        heading="Static Site Generation (SSG)"
+        heading="Static Rendering"
         tagline="Static Content Only" />
 
       <p className="mb-4 text-gray-700">
@@ -35,10 +35,10 @@ function StaticSSG() {
       </p>
 
       <Navigation
-        next="/ssg/build-time-fetch"
+        next="/static-rendering/build-time-fetch"
       />
     </main>
   )
 }
 
-export default StaticSSG
+export default StaticRendering

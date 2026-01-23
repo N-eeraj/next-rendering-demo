@@ -10,11 +10,11 @@ const BENEFITS = [
   "User sees loading state until content is ready",
 ]
 
-async function Streaming() {
+async function DynamicRenderingStreaming() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       <Title
-        heading="SSR with Streaming"
+        heading="Dynamic Rendering with Streaming"
         tagline="Full Page Progressive SSR" />
 
       <p className="mb-2 text-gray-700">
@@ -38,11 +38,11 @@ async function Streaming() {
       <DynamicComponent />
 
       <Navigation
-        previous="/ssr"
-        next="/ssr/streaming/partial"
+        previous="/dynamic-rendering"
+        next="/dynamic-rendering/streaming/partial"
       />
     </main>
   )
 }
 
-export default Streaming
+export default DynamicRenderingStreaming

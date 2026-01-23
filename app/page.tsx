@@ -1,29 +1,29 @@
-import Link from "next/link"
+import RoutesRenderingOptions from "@/components/RoutesRenderingOptions"
 
-const RENDERING_OPTIONS = [
+const STATIC_RENDERING_OPTIONS = [
   {
-    label: "Static SSG (static content only)",
-    url: "/ssg/static",
+    label: "Static Rendering",
+    url: "/static-rendering",
   },
   {
-    label: "SSG with Build-Time Fetch",
-    url: "/ssg/build-time-fetch",
+    label: "Static Rendering with Build-Time Data",
+    url: "/static-rendering/build-time-fetch",
   },
   {
-    label: "ISR",
-    url: "/isr",
+    label: "Static Rendering with ISR",
+    url: "/static-rendering/isr",
   },
   {
-    label: "SSR",
-    url: "/ssr",
+    label: "Dynamic Rendering (SSR)",
+    url: "/dynamic-rendering",
   },
   {
-    label: "SSR with Streaming",
-    url: "/ssr/streaming",
+    label: "Dynamic Rendering with Streaming",
+    url: "/dynamic-rendering/streaming",
   },
   {
-    label: "SSR with Partial Streaming",
-    url: "/ssr/streaming/partial",
+    label: "Dynamic Rendering with Partial Streaming",
+    url: "/dynamic-rendering/streaming/partial",
   },
 ]
 
@@ -41,20 +41,21 @@ function Home() {
         incremental, and client-driven rendering.
       </p>
 
-      <ol className="space-y-4">
-        {RENDERING_OPTIONS.map(({ label, url }, index) => (
-          <li
-            key={index}
-            className="border border-gray-200 rounded-lg bg-gray-50 hover:bg-sky-50 transition">
-            <Link
-              href={url}
-              className="block size-full p-4 text-gray-800 font-medium hover:text-sky-700 hover:underline"
-            >
-              {label}
-            </Link>
-          </li>
-        ))}
-      </ol>
+      <RoutesRenderingOptions
+        title="Static Routes"
+        options={STATIC_RENDERING_OPTIONS}>
+        <p className="text-gray-600 text-sm">
+          Static routes have fixed URL paths, such as&nbsp;
+          <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+            /about
+          </code>
+          &nbsp;or&nbsp;
+          <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+            /contact
+          </code>
+          . They represent pages with predefined URLs that do not change.
+        </p>
+      </RoutesRenderingOptions>
     </main>
   )
 }

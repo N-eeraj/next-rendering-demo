@@ -12,11 +12,11 @@ const BENEFITS = [
   "Page is SEO-friendly",
 ]
 
-async function PartialStreaming() {
+async function DynamicRenderingPartialStreaming() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       <Title
-        heading="SSR with Partial Streaming"
+        heading="Dynamic Rendering with Partial Streaming"
         tagline="Partial Progressive SSR" />
 
       <p className="mb-2 text-gray-700">
@@ -42,10 +42,10 @@ async function PartialStreaming() {
       </Suspense>
 
       <Navigation
-        previous="/ssr/streaming"
+        previous="/dynamic-rendering/streaming"
       />
     </main>
   )
 }
 
-export default PartialStreaming
+export default DynamicRenderingPartialStreaming

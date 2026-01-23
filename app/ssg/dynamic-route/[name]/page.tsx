@@ -1,17 +1,17 @@
 import { notFound } from "next/navigation"
-import { getStaticPaths } from "../getStaticPages"
+import { getStaticParams } from "../getStaticParams"
 
 interface Props {
   params: Promise<{ name: string }>
 }
 
 export async function generateStaticParams() {
-  return await getStaticPaths()
+  return await getStaticParams()
 }
 
 async function DynamicRouteSSG({ params }: Props) {
   const { name } = await params
-  const staticPaths = await getStaticPaths()
+  const staticPaths = await getStaticParams()
   if (!staticPaths.some((pathParams) => pathParams.name === name)) {
     notFound()
   }

@@ -15,13 +15,13 @@ async function fetchRandomPokemon() {
   return await response.json()
 }
 
-async function SSR() {
+async function DynamicRendering() {
   const pokemon = await fetchRandomPokemon()
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       <Title
-        heading="Server-Side Rendering (SSR)"
+        heading="Dynamic Rendering (SSR)"
         tagline="Fresh Content per Request"
       />
 
@@ -46,11 +46,11 @@ async function SSR() {
       </PokemonDemoCard>
 
       <Navigation
-        previous="/isr"
-        next="/ssr/streaming"
+        previous="/static-rendering/isr"
+        next="/dynamic-rendering/streaming"
       />
     </main>
   )
 }
 
-export default SSR
+export default DynamicRendering
