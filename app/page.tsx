@@ -31,7 +31,7 @@ function Home() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       <h1 className="mb-8 text-3xl font-bold tracking-tight text-gray-900">
-        React Rendering Demo
+        Next Rendering Demo
       </h1>
 
       <p className="mb-8 text-gray-700">
