@@ -1,6 +1,30 @@
+import Navigation from "@/components/Navigation"
+import PreRenderedPages from "../PreRenderedPages"
+import Link from "next/link"
+import Title from "@/components/Title"
+
 function NotFound() {
   return (
-    <div>NotFound</div>
+    <main className="mx-auto max-w-3xl px-6 py-16">
+      <Title
+        heading="404 - Page Not Found"
+        tagline="Sorry, the page you are looking for does not exist" />
+
+      <p className="mb-8 text-gray-700">
+        This page wasn't pre-rendered at build time. Please check the URL or return to the listing of pre-rendered pages.
+      </p>
+
+      <PreRenderedPages className="mt-6" />
+
+      <Navigation>
+        <Link
+          href="/ssg/dynamic-route"
+          className="text-sky-700 hover:underline font-medium"
+        >
+          Back to Listing
+        </Link>
+      </Navigation>
+    </main>
   )
 }
 

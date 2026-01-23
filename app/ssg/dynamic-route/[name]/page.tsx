@@ -40,7 +40,7 @@ async function DynamicRouteSSG({ params }: Props) {
     <main className="mx-auto max-w-3xl px-6 py-16">
       <Title
         heading="SSG with generateStaticParams"
-        tagline="Pre-rendered at Build Time"
+        tagline="Pre-Rendered at Build Time"
       />
 
       <p className="mb-4 text-gray-700">
