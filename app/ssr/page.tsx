@@ -47,7 +47,7 @@ async function SSR() {
 
       <Navigation
         previous="/isr"
-        next="/streaming"
+        next="/ssr/streaming"
       />
     </main>
   )

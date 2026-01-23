@@ -6,7 +6,7 @@ const RENDERING_OPTIONS = [
     url: "/ssg/static",
   },
   {
-    label: "SSG with build-time fetch",
+    label: "SSG with Build-Time Fetch",
     url: "/ssg/build-time-fetch",
   },
   {
@@ -18,12 +18,12 @@ const RENDERING_OPTIONS = [
     url: "/ssr",
   },
   {
-    label: "Streaming",
-    url: "/streaming",
+    label: "SSR with Streaming",
+    url: "/ssr/streaming",
   },
   {
-    label: "PPR (Partial Prerendering)",
-    url: "/ppr",
+    label: "SSR with Partial Streaming",
+    url: "/ssr/streaming/partial",
   },
 ]
 
