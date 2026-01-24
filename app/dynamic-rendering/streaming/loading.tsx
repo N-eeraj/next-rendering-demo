@@ -1,7 +1,7 @@
 const Skeleton = () => {
   return (
     <>
-      <main className="mx-auto max-w-3xl px-6 py-16">
+      <main className="main-container">
         <h1 className="mb-6">
           <div className="h-8 w-3/4 rounded bg-gray-300 animate-pulse" />
           <div className="mt-2 h-6 w-1/2 rounded bg-gray-200 animate-pulse" />

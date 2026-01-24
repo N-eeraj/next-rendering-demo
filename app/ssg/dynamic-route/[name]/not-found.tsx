@@ -5,7 +5,7 @@ import Title from "@/components/Title"
 
 function NotFound() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <Title
         heading="404 - Page Not Found"
         tagline="Sorry, the page you are looking for does not exist" />

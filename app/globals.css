@@ -17,3 +17,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@utility code-block {
+  @apply inline-block rounded bg-gray-100 px-1 py-0.5 font-mono text-sm;
+}
+
+@utility main-container {
+  @apply mx-auto max-w-3xl px-6 py-16;
+}

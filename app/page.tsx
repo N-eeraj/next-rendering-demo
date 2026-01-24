@@ -36,7 +36,7 @@ const DYNAMIC_RENDERING_OPTIONS = [
 
 function Home() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <h1 className="mb-8 text-3xl font-bold tracking-tight text-gray-900">
         Next Rendering Demo
       </h1>
@@ -54,11 +54,11 @@ function Home() {
         className="mb-8">
         <p className="text-gray-600 text-sm">
           Static routes have fixed URL paths, such as&nbsp;
-          <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+          <code className="code-block">
             /about
           </code>
           &nbsp;or&nbsp;
-          <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+          <code className="code-block">
             /contact
           </code>
           . They represent pages with predefined URLs that do not change.
@@ -70,11 +70,11 @@ function Home() {
         options={DYNAMIC_RENDERING_OPTIONS}>
         <p className="text-gray-600 text-sm">
           Dynamic routes have variable URL paths that include parameters, such as&nbsp;
-          <code className="inline-block rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+          <code className="code-block">
             /page/[id]
           </code>
           &nbsp;or&nbsp;
-          <code className="inline-block rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+          <code className="code-block">
             /resource/[id]/sub-resource/[sub-resource-id]
           </code>
           . These routes represent pages with URLs that change based on the parameter values, allowing for dynamic content based on the path.

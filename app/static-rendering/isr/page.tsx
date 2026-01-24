@@ -21,7 +21,7 @@ async function StaticRenderingISR() {
   const pokemon = await fetchRandomPokemon()
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <Title
         heading="Static Rendering with ISR"
         tagline="Pre-rendered with Background Updates" />

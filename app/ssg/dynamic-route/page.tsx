@@ -7,7 +7,7 @@ async function page() {
   const paths = await getStaticParams()
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <Title
         heading="SSG Pages List"
         tagline="Pre-rendered pages at Build Time"
@@ -15,11 +15,11 @@ async function page() {
 
       <p className="mb-4 text-gray-700">
         This page lists a series of statically generated pages created from the dynamic route&nbsp;
-        <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm whitespace-nowrap">
+        <code className="code-block">
           /ssg/dynamic-route/[name]
         </code>.
         During build time, Next.js uses&nbsp;
-        <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm whitespace-nowrap">
+        <code className="code-block">
           generateStaticParams
         </code>
         &nbsp;to generate each page as static HTML.
@@ -28,7 +28,9 @@ async function page() {
 
       <PreRenderedPages />
 
-      <Navigation />
+      <Navigation
+        previous="/dynamic-rendering/streaming/partial"
+      />
     </main>
   )
 }

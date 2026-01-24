@@ -11,7 +11,7 @@ const BENEFITS = [
 
 function StaticRendering() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <Title
         heading="Static Rendering"
         tagline="Static Content Only" />
@@ -22,7 +22,7 @@ function StaticRendering() {
 
       <p className="mb-8 text-gray-700">
         The HTML is created once during&nbsp;
-        <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+        <code className="code-block">
           next build
         </code>
         &nbsp;and then served as a static file for every request.

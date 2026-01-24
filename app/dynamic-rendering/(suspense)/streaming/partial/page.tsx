@@ -14,7 +14,7 @@ const BENEFITS = [
 
 async function DynamicRenderingPartialStreaming() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <Title
         heading="Dynamic Rendering with Partial Streaming"
         tagline="Partial Progressive SSR" />
@@ -25,7 +25,7 @@ async function DynamicRenderingPartialStreaming() {
 
       <p className="mb-4 text-gray-700">
         Dynamic sections are wrapped in&nbsp;
-        <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+        <code className="code-block">
           {'<Suspense>'}
         </code>
         , so the page renders immediately while only those parts are streamed from the server.
@@ -43,6 +43,7 @@ async function DynamicRenderingPartialStreaming() {
 
       <Navigation
         previous="/dynamic-rendering/streaming"
+        next="/ssg/dynamic-route"
       />
     </main>
   )

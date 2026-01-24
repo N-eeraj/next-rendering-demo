@@ -12,7 +12,7 @@ const BENEFITS = [
 
 async function DynamicRenderingStreaming() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <Title
         heading="Dynamic Rendering with Streaming"
         tagline="Full Page Progressive SSR" />
@@ -23,7 +23,7 @@ async function DynamicRenderingStreaming() {
 
       <p className="mb-4 text-gray-700">
         A&nbsp;
-        <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+        <code className="code-block">
           loading.tsx
         </code>
         &nbsp;displays a placeholder while the full page is progressively streamed from the server.

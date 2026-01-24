@@ -19,7 +19,7 @@ async function StaticRenderingBuildTimeFetch() {
   const pokemon = await fetchRandomPokemon()
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <Title
         heading="Static Rendering with Build-Time Data"
         tagline="Build-Time Data Fetching" />
@@ -30,7 +30,7 @@ async function StaticRenderingBuildTimeFetch() {
 
       <p className="mb-8 text-gray-700">
         The data is retrieved once when&nbsp;
-        <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+        <code className="code-block">
           next build
         </code>
         &nbsp;runs, and the resulting HTML is saved as a static file. Every user receives the same pre-rendered HTML until the site is rebuilt.

@@ -37,7 +37,7 @@ async function DynamicRouteSSG({ params }: Props) {
   const pokemon = await fetchRandomPokemon(name)
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <Title
         heading="SSG with generateStaticParams"
         tagline="Pre-Rendered at Build Time"
@@ -45,11 +45,11 @@ async function DynamicRouteSSG({ params }: Props) {
 
       <p className="mb-4 text-gray-700">
         This page is generated at build time for each path returned by&nbsp;
-        <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+        <code className="code-block">
           generateStaticParams
         </code>
         &nbsp;once when&nbsp;
-        <code className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm">
+        <code className="code-block">
           next build
         </code>
         &nbsp;runs.
@@ -70,7 +70,7 @@ async function DynamicRouteSSG({ params }: Props) {
         label="Build Time"
         pokemon={pokemon}>
         Pokémon fetched at build time based on the&nbsp;
-        <code className="rounded bg-gray-200 px-1 py-0.5 font-mono text-sm">
+        <code className="code-block bg-gray-300 text-gray-600">
           `[name]`
         </code>
         &nbsp;route parameter, page is statically pre-rendered for each specified path, with the same content for all visitors until the site is rebuilt.

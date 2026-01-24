@@ -19,7 +19,7 @@ async function DynamicRendering() {
   const pokemon = await fetchRandomPokemon()
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="main-container">
       <Title
         heading="Dynamic Rendering (SSR)"
         tagline="Fresh Content per Request"
