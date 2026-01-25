@@ -1,17 +1,9 @@
 import type { PropsWithChildren } from "react"
+import type { Pokemon } from "@/app/types"
 
 interface Props extends PropsWithChildren {
   label: string
-  pokemon: {
-    name: string
-    sprites: {
-      other: {
-        "official-artwork": {
-          front_default: string
-        }
-      }
-    }
-  }
+  pokemon: Pokemon
 }
 
 function PokemonDemoCard({ label, pokemon, children }: Props) {
@@ -30,7 +22,7 @@ function PokemonDemoCard({ label, pokemon, children }: Props) {
       </p>
       <div className="inline-block rounded overflow-hidden border border-gray-200">
         <img
-          src={pokemon.sprites.other["official-artwork"].front_default}
+          src={pokemon.sprites.other.home.front_default}
           alt={pokemon.name}
           className="w-32 h-32 object-contain bg-white"
         />

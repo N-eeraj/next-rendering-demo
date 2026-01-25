@@ -1,5 +1,7 @@
-export async function getStaticParams() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=9&offset=0")
+import { Pokemon } from "@/app/types"
+
+export async function getStaticParams(offset = 0) {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=9&offset=${offset}`)
   const data = await response.json()
-  return (data.results as Array<any>).map(({ name }) => ({ name }))
+  return (data.results as Array<Pick<Pokemon, "name">>).map(({ name }) => ({ name }))
 }

@@ -11,7 +11,7 @@ function NotFound() {
         tagline="Sorry, the page you are looking for does not exist" />
 
       <p className="mb-8 text-gray-700">
-        This page wasn't pre-rendered at build time. Please check the URL or return to the listing of pre-rendered pages.
+        This page wasn't pre-rendered at build time and cant be generated. Please check the URL or return to the listing of pre-rendered pages.
       </p>
 
       <PreRenderedPages

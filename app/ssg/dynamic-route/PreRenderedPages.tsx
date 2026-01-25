@@ -4,11 +4,12 @@ import RoutesList from "@/components/RoutesList"
 interface Props {
   dynamicRoute: string
   currentPath?: string
+  offset?: number
   className?: string
 }
 
-async function PreRenderedPages({ currentPath, dynamicRoute, className = "" }: Props) {
-  const paths = await getStaticParams()
+async function PreRenderedPages({ currentPath, dynamicRoute, offset = 0, className = "" }: Props) {
+  const paths = await getStaticParams(offset)
   const dateTime = new Date().toLocaleString("en-IN", {
     dateStyle: "long",
     timeStyle: "short",

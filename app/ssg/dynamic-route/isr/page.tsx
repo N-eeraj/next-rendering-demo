@@ -8,9 +8,9 @@ const ON_DEMAND_PATH_PROPS = {
   title: "On-Demand Pages: Examples",
   dynamicRoute: DYNAMIC_ROUTE,
   paths: [
-    "pikachu",
-    "eevee",
-    "dragonite",
+    "pichu",
+    "heracross",
+    "tyranitar",
   ]
     .map((name) => ({ name })),
 }
@@ -38,7 +38,8 @@ async function DynamicRouteSSG_ISR() {
 
       <PreRenderedPages
         dynamicRoute={DYNAMIC_ROUTE}
-        className="mb-7" />
+        className="mb-7"
+        offset={151} />
 
       <section className="space-y-2">
         <h2 className="text-2xl font-bold tracking-tight text-gray-800">
