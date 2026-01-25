@@ -1,15 +1,17 @@
 import { notFound } from "next/navigation"
-import { getStaticParams } from "../getStaticParams"
+import { getStaticParams } from "../../getStaticParams"
 import Title from "@/components/Title"
 import Benefits from "@/components/Benefits"
 import PokemonDemoCard from "@/components/PokemonDemoCard"
 import Navigation from "@/components/Navigation"
 import Link from "next/link"
-import PreRenderedPages from "../PreRenderedPages"
+import PreRenderedPages from "../../PreRenderedPages"
 
 interface Props {
   params: Promise<{ name: string }>
 }
+
+export const revalidate = 60 // Revalidate every 60 seconds
 
 export async function generateStaticParams() {
   return await getStaticParams()
@@ -23,11 +25,12 @@ async function fetchRandomPokemon(name: string) {
 const BENEFITS = [
   "HTML is generated at build time for all specified paths",
   "Data fetching occurs at build time",
-  "Content is consistent for every visitor",
-  "Ideal for dynamic routes that can be pre-rendered",
+  "Content is cached and served to visitors until revalidation",
+  "Pages are regenerated in the background after the revalidation period",
+  "Ideal for dynamic routes that need pre-rendering with occasional updates",
 ]
 
-async function DynamicRouteSSG({ params }: Props) {
+async function DynamicRouteSSG_ISR({ params }: Props) {
   const { name } = await params
   const staticPaths = await getStaticParams()
   if (!staticPaths.some((pathParams) => pathParams.name === name)) {
@@ -39,51 +42,47 @@ async function DynamicRouteSSG({ params }: Props) {
   return (
     <main className="main-container">
       <Title
-        heading="SSG with generateStaticParams"
-        tagline="Pre-Rendered at Build Time"
+        heading="SSG with generateStaticParams and ISR"
+        tagline="Pre-Rendered at Build Time with Background Updates"
       />
 
       <p className="mb-4 text-gray-700">
-        This page is generated at build time for each path returned by&nbsp;
+        This page is pre-rendered at build time for each path returned by&nbsp;
         <code className="code-block">
           generateStaticParams
         </code>
-        &nbsp;once when&nbsp;
-        <code className="code-block">
-          next build
-        </code>
-        &nbsp;runs.
+        , producing static HTML just like a static page.
       </p>
 
       <p className="mb-8 text-gray-700">
-        Producing fully static HTML that is served to every visitor. Unlike SSR, no server processing is needed at request time, ensuring fast load times.
+        After the initial build, the page is cached and served to all visitors. The page regenerates in the background after the revalidation period, updating the cached HTML for future visitors.
       </p>
 
 
       <Benefits benefits={BENEFITS} />
 
       <p className="mb-8 text-gray-500 text-sm">
-        This strategy combines the flexibility of dynamic URLs with the performance of static pages, making it ideal for content that rarely changes but requires multiple paths.
+        This strategy combines the flexibility of dynamic URLs with the performance of static pages, while allowing background updates, making it ideal for content that changes occasionally but still benefits from pre-rendering.
       </p>
 
       <PokemonDemoCard
-        label="Build Time"
+        label="Last Generated"
         pokemon={pokemon}>
-        Pokémon fetched at build time based on the&nbsp;
+        Pokémon fetched are pre-rendered at build time for each&nbsp;
         <code className="code-block bg-gray-300 text-gray-600">
           `[name]`
         </code>
-        &nbsp;route parameter, page is statically pre-rendered for each specified path, with the same content for all visitors until the site is rebuilt.
+        route parameter. This page can regenerate in the background based on the ISR revalidation interval (1 Minute here).
       </PokemonDemoCard>
 
       <PreRenderedPages
-        dynamicRoute="/ssg/dynamic-route/"
+        dynamicRoute="/ssg/dynamic-route/isr/"
         currentPath={pokemon.name}
         className="mt-6" />
 
       <Navigation>
         <Link
-          href="/ssg/dynamic-route"
+          href="/ssg/dynamic-route/isr"
           className="text-sky-700 hover:underline font-medium"
         >
           Back to Listing
@@ -93,4 +92,4 @@ async function DynamicRouteSSG({ params }: Props) {
   )
 }
 
-export default DynamicRouteSSG
+export default DynamicRouteSSG_ISR

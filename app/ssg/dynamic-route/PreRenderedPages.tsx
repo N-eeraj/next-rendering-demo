@@ -2,13 +2,12 @@ import Link from "next/link"
 import { getStaticParams } from "./getStaticParams"
 
 interface Props {
+  dynamicRoute: string
   currentPath?: string
   className?: string
 }
 
-const DYNAMIC_ROUTE = "/ssg/dynamic-route/"
-
-async function PreRenderedPages({ currentPath, className = "" }: Props) {
+async function PreRenderedPages({ currentPath, dynamicRoute, className = "" }: Props) {
   const paths = await getStaticParams()
 
   return (
@@ -25,8 +24,8 @@ async function PreRenderedPages({ currentPath, className = "" }: Props) {
               w-fit
               ${currentPath === name ? "text-sky-600 pointer-events-none" : "hover:text-sky-700 hover:underline transition-colors cursor-pointer"}
             `}>
-            <Link href={DYNAMIC_ROUTE + name}>
-              {DYNAMIC_ROUTE}{name}
+            <Link href={dynamicRoute + name}>
+              {dynamicRoute}{name}
             </Link>
           </li>
         ))}

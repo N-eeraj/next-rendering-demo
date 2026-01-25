@@ -1,22 +1,22 @@
 import Title from "@/components/Title"
-import { getStaticParams } from "./getStaticParams"
+import { getStaticParams } from "../getStaticParams"
 import Navigation from "@/components/Navigation"
-import PreRenderedPages from "./PreRenderedPages"
+import PreRenderedPages from "../PreRenderedPages"
 
-async function DynamicRouteSSG() {
+async function DynamicRouteSSG_ISR() {
   const paths = await getStaticParams()
 
   return (
     <main className="main-container">
       <Title
-        heading="SSG Pages List"
+        heading="SSG Pages with ISR List"
         tagline="Pre-rendered pages at Build Time"
       />
 
       <p className="mb-4 text-gray-700">
         This page lists a series of statically generated pages created from the dynamic route&nbsp;
         <code className="code-block">
-          /ssg/dynamic-route/[name]
+          /ssg/dynamic-route/isr/[name]
         </code>.
         During build time, Next.js uses&nbsp;
         <code className="code-block">
@@ -27,14 +27,13 @@ async function DynamicRouteSSG() {
       </p>
 
       <PreRenderedPages
-        dynamicRoute="/ssg/dynamic-route/" />
+        dynamicRoute="/ssg/dynamic-route/isr/" />
 
       <Navigation
-        previous="/dynamic-rendering/streaming/partial"
-        next="/ssg/dynamic-route/isr"
+        previous="/ssg/dynamic-route"
       />
     </main>
   )
 }
 
-export default DynamicRouteSSG
+export default DynamicRouteSSG_ISR

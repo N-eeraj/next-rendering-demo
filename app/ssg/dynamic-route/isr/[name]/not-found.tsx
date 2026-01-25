@@ -1,5 +1,5 @@
 import Navigation from "@/components/Navigation"
-import PreRenderedPages from "../PreRenderedPages"
+import PreRenderedPages from "../../PreRenderedPages"
 import Link from "next/link"
 import Title from "@/components/Title"
 
@@ -15,12 +15,12 @@ function NotFound() {
       </p>
 
       <PreRenderedPages
-        dynamicRoute="/ssg/dynamic-route/"
+        dynamicRoute="/ssg/dynamic-route/isr/"
         className="mt-6" />
 
       <Navigation>
         <Link
-          href="/ssg/dynamic-route"
+          href="/ssg/dynamic-route/isr"
           className="text-sky-700 hover:underline font-medium"
         >
           Back to Listing

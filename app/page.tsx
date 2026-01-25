@@ -32,6 +32,10 @@ const DYNAMIC_RENDERING_OPTIONS = [
     label: "SSG Rendering",
     url: "/ssg/dynamic-route",
   },
+  {
+    label: "SSG Rendering with ISR",
+    url: "/ssg/dynamic-route/isr",
+  },
 ]
 
 function Home() {
