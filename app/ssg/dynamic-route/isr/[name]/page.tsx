@@ -70,15 +70,15 @@ async function DynamicRouteSSG_ISR({ params }: Props) {
         pokemon={pokemon}>
         Pokémon fetched are pre-rendered at build time for each&nbsp;
         <code className="code-block bg-gray-300 text-gray-600">
-          `[name]`
+          [name]
         </code>
-        route parameter. This page can regenerate in the background based on the ISR revalidation interval (1 Minute here).
+        &nbsp;route parameter. This page can regenerate in the background based on the ISR revalidation interval (1 Minute here).
       </PokemonDemoCard>
 
       <PreRenderedPages
         dynamicRoute="/ssg/dynamic-route/isr/"
         currentPath={pokemon.name}
-        className="mt-6" />
+        className="mt-10 pt-8 border-t border-t-gray-300" />
 
       <Navigation>
         <Link

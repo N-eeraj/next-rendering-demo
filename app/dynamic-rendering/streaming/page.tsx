@@ -1,7 +1,7 @@
 import Benefits from "@/components/Benefits"
 import Navigation from "@/components/Navigation"
 import Title from "@/components/Title"
-import { DynamicComponent } from "./DynamicComponent"
+import { DynamicComponent } from "../DynamicComponent"
 
 const BENEFITS = [
   "Data is always fresh",

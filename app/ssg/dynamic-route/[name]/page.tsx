@@ -71,7 +71,7 @@ async function DynamicRouteSSG({ params }: Props) {
         pokemon={pokemon}>
         Pokémon fetched at build time based on the&nbsp;
         <code className="code-block bg-gray-300 text-gray-600">
-          `[name]`
+          [name]
         </code>
         &nbsp;route parameter, page is statically pre-rendered for each specified path, with the same content for all visitors until the site is rebuilt.
       </PokemonDemoCard>
@@ -79,7 +79,7 @@ async function DynamicRouteSSG({ params }: Props) {
       <PreRenderedPages
         dynamicRoute="/ssg/dynamic-route/"
         currentPath={pokemon.name}
-        className="mt-6" />
+        className="mt-10 pt-8 border-t border-t-gray-300" />
 
       <Navigation>
         <Link

@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation"
 import Title from "@/components/Title"
 import { Suspense } from "react"
 import Skeleton from "./Loader"
-import { DynamicComponent } from "./DynamicComponent"
+import { DynamicComponent } from "../../../DynamicComponent"
 
 const BENEFITS = [
   "Data is always fresh",

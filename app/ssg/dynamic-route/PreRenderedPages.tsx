@@ -9,14 +9,21 @@ interface Props {
 
 async function PreRenderedPages({ currentPath, dynamicRoute, className = "" }: Props) {
   const paths = await getStaticParams()
+  const dateTime = new Date().toLocaleString("en-IN", {
+    dateStyle: "long",
+    timeStyle: "short",
+  })
 
   return (
-    <section className={className}>
-      <h2 className="mb-2 text-xl font-semibold text-gray-600">
+    <section className={`
+      space-y-2
+      ${className}
+    `}>
+      <h2 className="text-xl font-semibold text-gray-600">
         Pre-rendered Pages
       </h2>
 
-      <ol className="list-decimal pl-6 space-y-3 text-gray-800">
+      <ol className="list-decimal mb-3 pl-5 space-y-3 text-gray-800">
         {paths.map(({ name }, index) => (
           <li
             key={index}
@@ -30,6 +37,10 @@ async function PreRenderedPages({ currentPath, dynamicRoute, className = "" }: P
           </li>
         ))}
       </ol>
+
+      <blockquote className="pl-3 py-1.5 bg-gray-100 text-gray-800 text-sm border-l-4 border-gray-500">
+        Pages generated at {dateTime}
+      </blockquote>
     </section>
   )
 }
