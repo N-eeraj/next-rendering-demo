@@ -1,42 +1,5 @@
-import RoutesRenderingOptions from "@/components/RoutesRenderingOptions"
-
-const STATIC_RENDERING_OPTIONS = [
-  {
-    label: "Static Rendering",
-    url: "/static-rendering",
-  },
-  {
-    label: "Static Rendering with Build-Time Data",
-    url: "/static-rendering/build-time-fetch",
-  },
-  {
-    label: "Static Rendering with ISR",
-    url: "/static-rendering/isr",
-  },
-  {
-    label: "Dynamic Rendering (SSR)",
-    url: "/dynamic-rendering",
-  },
-  {
-    label: "Dynamic Rendering with Streaming",
-    url: "/dynamic-rendering/streaming",
-  },
-  {
-    label: "Dynamic Rendering with Partial Streaming",
-    url: "/dynamic-rendering/streaming/partial",
-  },
-]
-
-const DYNAMIC_RENDERING_OPTIONS = [
-  {
-    label: "SSG Rendering",
-    url: "/ssg/dynamic-route",
-  },
-  {
-    label: "SSG Rendering with ISR",
-    url: "/ssg/dynamic-route/isr",
-  },
-]
+import DynamicRoutes from "./DynamicRoutes"
+import StaticRoutes from "./StaticRoutes"
 
 function Home() {
   return (
@@ -52,38 +15,8 @@ function Home() {
         incremental, and client-driven rendering.
       </p>
 
-      <RoutesRenderingOptions
-        title="Static Routes"
-        options={STATIC_RENDERING_OPTIONS}
-        className="mb-8">
-        <p className="text-gray-600 text-sm">
-          Static routes have fixed URL paths, such as&nbsp;
-          <code className="code-block">
-            /about
-          </code>
-          &nbsp;or&nbsp;
-          <code className="code-block">
-            /contact
-          </code>
-          . They represent pages with predefined URLs that do not change.
-        </p>
-      </RoutesRenderingOptions>
-
-      <RoutesRenderingOptions
-        title="Dynamic Routes"
-        options={DYNAMIC_RENDERING_OPTIONS}>
-        <p className="text-gray-600 text-sm">
-          Dynamic routes have variable URL paths that include parameters, such as&nbsp;
-          <code className="code-block">
-            /page/[id]
-          </code>
-          &nbsp;or&nbsp;
-          <code className="code-block">
-            /resource/[id]/sub-resource/[sub-resource-id]
-          </code>
-          . These routes represent pages with URLs that change based on the parameter values, allowing for dynamic content based on the path.
-        </p>
-      </RoutesRenderingOptions>
+      <StaticRoutes />
+      <DynamicRoutes />
     </main>
   )
 }

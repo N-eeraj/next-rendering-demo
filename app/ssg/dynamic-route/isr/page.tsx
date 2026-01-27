@@ -60,6 +60,7 @@ async function DynamicRouteSSG_ISR() {
 
       <Navigation
         previous="/ssg/dynamic-route"
+        next="/dynamic-rendering/dynamic-route"
       />
     </main>
   )
