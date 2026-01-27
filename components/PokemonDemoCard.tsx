@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react"
-import type { Pokemon } from "@/app/types"
+import type { Pokemon } from "@/types"
 
 interface Props extends PropsWithChildren {
   label: string

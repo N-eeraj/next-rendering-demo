@@ -6,7 +6,7 @@ import Link from "next/link"
 import PreRenderedPage from "./PreRenderedPage"
 import PreRenderedPages from "../PreRenderedPages"
 import OnDemandCachedPage from "./OnDemandCachedPage"
-import type { Pokemon } from "@/app/types"
+import type { Pokemon } from "@/types"
 
 interface Props {
   params: Promise<{ name: string }>

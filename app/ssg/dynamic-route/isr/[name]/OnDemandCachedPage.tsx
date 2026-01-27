@@ -1,6 +1,6 @@
 import Benefits from "@/components/Benefits"
 import PokemonDemoCard from "@/components/PokemonDemoCard"
-import type { Pokemon } from "@/app/types"
+import type { Pokemon } from "@/types"
 
 const BENEFITS = [
   "HTML is generated on the first request for each path, not at build time",

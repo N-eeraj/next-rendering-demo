@@ -1,4 +1,4 @@
-import { Pokemon } from "@/app/types"
+import { Pokemon } from "@/types"
 
 export async function getStaticParams(offset = 0) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=9&offset=${offset}`)
