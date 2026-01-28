@@ -3,21 +3,21 @@ import Title from "@/components/Title"
 import Navigation from "@/components/Navigation"
 import RoutesList from "@/components/RoutesList"
 
-const DYNAMIC_ROUTE = "/dynamic-rendering/dynamic-route/"
+const DYNAMIC_ROUTE = "/dynamic-rendering/dynamic-route/streaming/"
 const ON_DEMAND_PATH_PROPS = {
   title: "Example Paths",
   dynamicRoute: DYNAMIC_ROUTE,
   paths: [
+    "bulbasaur",
+    "charmander",
+    "squirtle",
+    "chikorita",
+    "cyndaquil",
+    "totodile",
     "treecko",
-    "grovyle",
-    "sceptile",
     "torchic",
-    "combusken",
-    "blaziken",
-    "mudkip",
-    "marshtomp",
-    "swampert",
-  ]
+    "mudkip"
+  ]  
     .map((name) => ({ name })),
 }
 
@@ -27,7 +27,7 @@ async function DynamicRouteDynamicRendering() {
     <main className="main-container">
       <Title
         heading="Dynamic Routes with Dynamic Rendering"
-        tagline="On demand rendered pages"
+        tagline="On demand rendered pages with Streaming"
       />
 
       <p className="mb-4 text-gray-700">
@@ -41,8 +41,7 @@ async function DynamicRouteDynamicRendering() {
       <RoutesList {...ON_DEMAND_PATH_PROPS} />
 
       <Navigation
-        previous="/dynamic-rendering/dynamic-route"
-        next="/dynamic-rendering/dynamic-route/streaming"
+        previous="/ssg/dynamic-route/isr"
       />
     </main>
   )

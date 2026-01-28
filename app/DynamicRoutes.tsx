@@ -10,8 +10,12 @@ const DYNAMIC_RENDERING_OPTIONS = [
     url: "/ssg/dynamic-route/isr",
   },
   {
-    label: "Dynamic Rendering",
+    label: "Dynamic Rendering (SSR)",
     url: "/dynamic-rendering/dynamic-route",
+  },
+  {
+    label: "Dynamic Rendering with Streaming",
+    url: "/dynamic-rendering/dynamic-route/streaming",
   },
 ]
 
