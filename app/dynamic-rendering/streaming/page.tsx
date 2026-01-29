@@ -1,7 +1,7 @@
 import Benefits from "@/components/Benefits"
 import Navigation from "@/components/Navigation"
 import Title from "@/components/Title"
-import { DynamicComponent } from "../DynamicComponent"
+import { RandomDynamicComponent as DynamicComponent } from "@/app/dynamic-rendering/DynamicComponent"
 
 const BENEFITS = [
   "Data is always fresh",
@@ -35,7 +35,7 @@ async function DynamicRenderingStreaming() {
         Streaming delivers the full page progressively, reducing perceived load time.
       </p>
 
-      <DynamicComponent />
+      <DynamicComponent label="Streamed at" />
 
       <Navigation
         previous="/dynamic-rendering"

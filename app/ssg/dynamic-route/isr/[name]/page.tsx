@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { getStaticParams } from "../../getStaticParams"
+import { getStaticParams } from "@/app/ssg/dynamic-route/getStaticParams"
 import Title from "@/components/Title"
 import Navigation from "@/components/Navigation"
 import Link from "next/link"
@@ -17,7 +17,7 @@ export async function generateStaticParams() {
   return await getStaticParams(151)
 }
 
-async function fetchRandomPokemon(name: string) {
+async function fetchPokemonByName(name: string) {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name)
   return await response.json()
 }
@@ -25,7 +25,7 @@ async function fetchRandomPokemon(name: string) {
 async function DynamicRouteSSG_ISR({ params }: Props) {
   try {
     const { name } = await params
-    const pokemon = await fetchRandomPokemon(name)
+    const pokemon = await fetchPokemonByName(name)
     const staticPaths = await getStaticParams(151)
     const PageContent = staticPaths.some((pathParams) => pathParams.name === name)
       ? PreRenderedPage

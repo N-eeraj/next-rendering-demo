@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation"
 import Title from "@/components/Title"
 import { Suspense } from "react"
 import Skeleton from "./Loader"
-import { DynamicComponent } from "../../../DynamicComponent"
+import { RandomDynamicComponent as DynamicComponent } from "@/app/dynamic-rendering/DynamicComponent"
 
 const BENEFITS = [
   "Data is always fresh",
@@ -38,7 +38,7 @@ async function DynamicRenderingPartialStreaming() {
       </p>
 
       <Suspense fallback={<Skeleton />}>
-        <DynamicComponent />
+        <DynamicComponent label="Stream at" />
       </Suspense>
 
       <Navigation

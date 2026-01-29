@@ -1,7 +1,7 @@
 import Benefits from "@/components/Benefits"
 import Navigation from "@/components/Navigation"
-import PokemonDemoCard from "@/components/PokemonDemoCard"
 import Title from "@/components/Title"
+import { RandomDynamicComponent as DynamicComponent } from "@/app/dynamic-rendering/DynamicComponent"
 
 const BENEFITS = [
   "HTML is generated per request",
@@ -10,14 +10,7 @@ const BENEFITS = [
   "Ideal for dynamic or user-specific content",
 ]
 
-async function fetchRandomPokemon() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + Math.ceil(Math.random() * 151), { cache: "no-cache" })
-  return await response.json()
-}
-
 async function DynamicRendering() {
-  const pokemon = await fetchRandomPokemon()
-
   return (
     <main className="main-container">
       <Title
@@ -39,11 +32,7 @@ async function DynamicRendering() {
         but it may be slightly slower than static or ISR pages due to server processing.
       </p>
 
-      <PokemonDemoCard
-        label="Rendered at"
-        pokemon={pokemon}>
-        Random Pokémon fetched at request time. This page regenerates on each request, so the content is always fresh.
-      </PokemonDemoCard>
+      <DynamicComponent label="Rendered at" />
 
       <Navigation
         previous="/static-rendering/isr"

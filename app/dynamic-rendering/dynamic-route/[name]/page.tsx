@@ -2,9 +2,8 @@ import { notFound } from "next/navigation"
 import Title from "@/components/Title"
 import Navigation from "@/components/Navigation"
 import Link from "next/link"
-import type { Pokemon } from "@/types"
 import Benefits from "@/components/Benefits"
-import PokemonDemoCard from "@/components/PokemonDemoCard"
+import { DynamicComponentByName as DynamicComponent } from "@/app/dynamic-rendering/DynamicComponent"
 
 interface Props {
   params: Promise<{ name: string }>
@@ -17,15 +16,9 @@ const BENEFITS = [
   "Ideal for dynamic or user-specific content",
 ]
 
-async function fetchRandomPokemon(name: string) {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name)
-  return await response.json()
-}
-
 async function DynamicRouteDynamicRendering({ params }: Props) {
   try {
     const { name } = await params
-    const pokemon: Pokemon = await fetchRandomPokemon(name)
 
     return (
       <main className="main-container">
@@ -45,15 +38,10 @@ async function DynamicRouteDynamicRendering({ params }: Props) {
           However, it may be slightly slower than SSG or SSG with ISR due to server-side processing on each request.
         </p>
 
-        <PokemonDemoCard
-          label="Rendered at"
-          pokemon={pokemon}>
-          Pokémon is fetched at request time based on the&nbsp;
-          <code className="code-block bg-gray-300 text-gray-600">
-            [name]
-          </code>
-          &nbsp;route parameter. This page regenerates on each request, so the content is always fresh.
-        </PokemonDemoCard>
+        <DynamicComponent
+          label="Streamed at"
+          name={name}
+        />
 
         <Navigation>
           <Link
