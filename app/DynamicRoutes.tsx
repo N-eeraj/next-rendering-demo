@@ -17,6 +17,10 @@ const DYNAMIC_RENDERING_OPTIONS = [
     label: "Dynamic Rendering with Streaming",
     url: "/dynamic-rendering/dynamic-route/streaming",
   },
+  {
+    label: "Dynamic Rendering with Partial Streaming",
+    url: "/dynamic-rendering/dynamic-route/streaming/partial",
+  },
 ]
 
 function DynamicRoutes() {

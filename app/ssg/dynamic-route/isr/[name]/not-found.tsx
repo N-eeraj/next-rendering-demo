@@ -22,7 +22,7 @@ function NotFound() {
       <Navigation>
         <Link
           href="/ssg/dynamic-route/isr"
-          className="text-sky-700 hover:underline font-medium"
+          className="link"
         >
           Back to Listing
         </Link>

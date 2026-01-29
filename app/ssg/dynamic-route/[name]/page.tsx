@@ -47,7 +47,7 @@ async function DynamicRouteSSG({ params }: Props) {
         <Navigation>
           <Link
             href="/ssg/dynamic-route"
-            className="text-sky-700 hover:underline font-medium"
+            className="link"
           >
             Back to Listing
           </Link>

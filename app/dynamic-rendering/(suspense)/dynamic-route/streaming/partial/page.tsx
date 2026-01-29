@@ -3,7 +3,7 @@ import Title from "@/components/Title"
 import Navigation from "@/components/Navigation"
 import RoutesList from "@/components/RoutesList"
 
-const DYNAMIC_ROUTE = "/dynamic-rendering/dynamic-route/streaming/"
+const DYNAMIC_ROUTE = "/dynamic-rendering/dynamic-route/streaming/partial/"
 const ON_DEMAND_PATH_PROPS = {
   title: "Example Paths",
   dynamicRoute: DYNAMIC_ROUTE,
@@ -27,7 +27,7 @@ async function DynamicRouteDynamicRendering() {
     <main className="main-container">
       <Title
         heading="Dynamic Routes with Dynamic Rendering"
-        tagline="On demand rendered pages with Streaming"
+        tagline="On demand rendered pages with Partial Streaming"
       />
 
       <p className="mb-4 text-gray-700">
@@ -35,22 +35,21 @@ async function DynamicRouteDynamicRendering() {
         <code className="code-block">
           {DYNAMIC_ROUTE}[name]
         </code>
-        &nbsp;path. 
+        &nbsp;path.
       </p>
 
       <p className="mb-4 text-gray-700">
-        A&nbsp;
+        Dynamic sections are wrapped in&nbsp;
         <code className="code-block">
-          loading.tsx
+          {'<Suspense>'}
         </code>
-        &nbsp;displays a placeholder while the full page is progressively streamed from the server.
+        , so the page renders immediately while only those parts are streamed from the server.
       </p>
 
       <RoutesList {...ON_DEMAND_PATH_PROPS} />
 
       <Navigation
-        previous="/dynamic-rendering/dynamic-route"
-        next="/dynamic-rendering/dynamic-route/streaming/partial"
+        previous="/dynamic-rendering/dynamic-route/streaming"
       />
     </main>
   )

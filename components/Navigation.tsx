@@ -11,7 +11,7 @@ function Navigation({ previous, next, children }: Props) {
     <nav className="mt-12 flex justify-between text-sm">
       <Link
         href="/"
-        className="text-sky-700 hover:underline font-medium"
+        className="link"
       >
         Home
       </Link>

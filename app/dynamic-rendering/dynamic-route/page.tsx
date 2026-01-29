@@ -41,7 +41,7 @@ async function DynamicRouteDynamicRendering() {
       <RoutesList {...ON_DEMAND_PATH_PROPS} />
 
       <Navigation
-        previous="/dynamic-rendering/dynamic-route"
+        previous="/ssg/dynamic-route/isr"
         next="/dynamic-rendering/dynamic-route/streaming"
       />
     </main>

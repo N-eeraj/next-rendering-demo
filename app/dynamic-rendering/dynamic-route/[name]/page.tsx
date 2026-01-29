@@ -26,6 +26,7 @@ async function DynamicRouteDynamicRendering({ params }: Props) {
   try {
     const { name } = await params
     const pokemon: Pokemon = await fetchRandomPokemon(name)
+
     return (
       <main className="main-container">
         <Title
@@ -57,7 +58,7 @@ async function DynamicRouteDynamicRendering({ params }: Props) {
         <Navigation>
           <Link
             href="/dynamic-rendering/dynamic-route"
-            className="text-sky-700 hover:underline font-medium"
+            className="link"
           >
             Back to Example Paths
           </Link>

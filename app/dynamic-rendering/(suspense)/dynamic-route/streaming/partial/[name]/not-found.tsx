@@ -15,7 +15,7 @@ function NotFound() {
 
       <Navigation>
         <Link
-          href="/dynamic-rendering/dynamic-route"
+          href="/dynamic-rendering/dynamic-route/streaming/partial"
           className="link"
         >
           Back to Listing

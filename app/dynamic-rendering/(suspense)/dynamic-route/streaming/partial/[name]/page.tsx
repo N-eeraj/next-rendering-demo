@@ -5,6 +5,8 @@ import Link from "next/link"
 import type { Pokemon } from "@/types"
 import Benefits from "@/components/Benefits"
 import PokemonDemoCard from "@/components/PokemonDemoCard"
+import { Suspense } from "react"
+import Skeleton from "./Skeleton"
 
 interface Props {
   params: Promise<{ name: string }>
@@ -45,19 +47,21 @@ async function DynamicRouteDynamicRendering({ params }: Props) {
           However, it may be slightly slower than SSG or SSG with ISR due to server-side processing on each request.
         </p>
 
-        <PokemonDemoCard
-          label="Rendered at"
-          pokemon={pokemon}>
-          Pokémon is fetched at request time based on the&nbsp;
-          <code className="code-block bg-gray-300 text-gray-600">
-            [name]
-          </code>
-          &nbsp;route parameter. This page regenerates on each request, so the content is always fresh.
-        </PokemonDemoCard>
+        <Suspense fallback={<Skeleton />}>
+          <PokemonDemoCard
+            label="Rendered at"
+            pokemon={pokemon}>
+            Pokémon is fetched at request time based on the&nbsp;
+            <code className="code-block bg-gray-300 text-gray-600">
+              [name]
+            </code>
+            &nbsp;route parameter. This page regenerates on each request, so the content is always fresh.
+          </PokemonDemoCard>
+        </Suspense>
 
         <Navigation>
           <Link
-            href="/dynamic-rendering/dynamic-route/streaming"
+            href="/dynamic-rendering/dynamic-route/streaming/partial"
             className="link"
           >
             Back to Example Paths

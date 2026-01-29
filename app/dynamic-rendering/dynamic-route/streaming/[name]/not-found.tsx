@@ -16,7 +16,7 @@ function NotFound() {
       <Navigation>
         <Link
           href="/dynamic-rendering/dynamic-route/streaming"
-          className="text-sky-700 hover:underline font-medium"
+          className="link"
         >
           Back to Listing
         </Link>
