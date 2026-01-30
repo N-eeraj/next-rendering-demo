@@ -35,7 +35,9 @@ async function DynamicRenderingStreaming() {
         Streaming delivers the full page progressively, reducing perceived load time.
       </p>
 
-      <DynamicComponent label="Streamed at" />
+      <DynamicComponent label="Streamed at">
+        Using a loading state ensures a predictable, polished user experience, while still leveraging server-side rendering to provide SEO-friendly content once the page is fully streamed to the client.
+      </DynamicComponent>
 
       <Navigation
         previous="/dynamic-rendering"

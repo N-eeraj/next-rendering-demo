@@ -32,7 +32,9 @@ async function DynamicRendering() {
         but it may be slightly slower than static or ISR pages due to server processing.
       </p>
 
-      <DynamicComponent label="Rendered at" />
+      <DynamicComponent label="Rendered at">
+        Random Pokémon fetched at request time. This page regenerates on each request, so the content is always fresh.
+      </DynamicComponent>
 
       <Navigation
         previous="/static-rendering/isr"

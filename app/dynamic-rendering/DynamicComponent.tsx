@@ -1,7 +1,8 @@
 import PokemonDemoCard from "@/components/PokemonDemoCard"
 import type { Pokemon } from "@/types"
+import { PropsWithChildren } from "react"
 
-interface BaseProps {
+interface BaseProps extends PropsWithChildren {
   label: string
 }
 
@@ -12,14 +13,14 @@ async function fetchRandomPokemon() {
 
 interface RandomProps extends BaseProps {}
 
-export async function RandomDynamicComponent({ label }: RandomProps) {
+export async function RandomDynamicComponent({ label, children }: RandomProps) {
   const pokemon: Pokemon = await fetchRandomPokemon()
 
   return (
     <PokemonDemoCard
       label={label}
       pokemon={pokemon}>
-      Using a loading state ensures a predictable, polished user experience, while still leveraging server-side rendering to provide SEO-friendly content once the page is fully streamed to the client.
+      {children}
     </PokemonDemoCard>
   )
 }
@@ -34,18 +35,14 @@ async function fetchPokemonByName(name: string) {
   return await response.json()
 }
 
-export async function DynamicComponentByName({ name, label }: ByNameProps) {
+export async function DynamicComponentByName({ name, label, children }: ByNameProps) {
   const pokemon: Pokemon = await fetchPokemonByName(name)
 
   return (
     <PokemonDemoCard
       label={label}
       pokemon={pokemon}>
-      Pokémon is fetched at request time based on the&nbsp;
-      <code className="code-block bg-gray-300 text-gray-600">
-        [name]
-      </code>
-      &nbsp;route parameter. This page regenerates on each request, so the content is always fresh.
+      {children}
     </PokemonDemoCard>
   )
 }

@@ -10,10 +10,10 @@ interface Props {
 }
 
 const BENEFITS = [
-  "HTML is generated per request",
-  "Data fetching occurs at request time",
-  "Content is always up-to-date",
-  "Ideal for dynamic or user-specific content",
+  "Data is always fresh",
+  "Full page is streamed progressively",
+  "Page is SEO-friendly",
+  "User sees loading state until content is ready",
 ]
 
 async function DynamicRouteDynamicRendering({ params }: Props) {
@@ -24,24 +24,32 @@ async function DynamicRouteDynamicRendering({ params }: Props) {
       <main className="main-container">
         <Title
           heading="Dynamic Rendering"
-          tagline="Rendered On-Demand"
+          tagline="Full Page Progressive SSR"
         />
   
         <p className="mb-4 text-gray-700">
-          This page is rendered on the server for every request, generating fresh HTML each time a user visits. Unlike static pages, the HTML is never cached at build time unless you explicitly configure caching.
+          This page is rendered on the server for every request, generating fresh HTML each time a user visits. Unlike static pages, the HTML is never cached.
+          The page shows a loading state, then streams the full HTML to improve time-to-first-byte.
         </p>
 
         <Benefits benefits={BENEFITS} />
 
         <p className="mb-8 text-gray-500 text-sm">
-          This strategy combines the flexibility of dynamic URLs with real-time server rendering, ensuring that every visitor receives the most up-to-date version of the page.
-          However, it may be slightly slower than SSG or SSG with ISR due to server-side processing on each request.
+          This strategy pairs dynamic URLs with real-time server rendering to ensure fresh content for every visitor.
+          Streaming the page progressively helps reduce perceived load time and improves the overall experience.
         </p>
 
         <DynamicComponent
           label="Streamed at"
           name={name}
-        />
+        >
+          Pokémon is fetched at request time based on the&nbsp;
+          <code className="code-block bg-gray-300 text-gray-600">
+            [name]
+          </code>
+          &nbsp;route parameter.
+          Using a loading state creates a smooth, predictable experience while still enabling SEO-friendly server-side rendering.
+        </DynamicComponent>
 
         <Navigation>
           <Link

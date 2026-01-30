@@ -28,7 +28,7 @@ async function DynamicRouteDynamicRendering({ params }: Props) {
         />
   
         <p className="mb-4 text-gray-700">
-          This page is rendered on the server for every request, generating fresh HTML each time a user visits. Unlike static pages, the HTML is never cached at build time unless you explicitly configure caching.
+          This page is rendered on the server for every request, generating fresh HTML each time a user visits. Unlike static pages, the HTML is never cached.
         </p>
 
         <Benefits benefits={BENEFITS} />
@@ -39,9 +39,16 @@ async function DynamicRouteDynamicRendering({ params }: Props) {
         </p>
 
         <DynamicComponent
-          label="Streamed at"
+          label="Rendered at"
           name={name}
-        />
+        >
+          Pokémon is fetched at request time based on the&nbsp;
+          <code className="code-block bg-gray-300 text-gray-600">
+            [name]
+          </code>
+          &nbsp;route parameter.
+          This page regenerates on each request, so the content is always fresh. 
+        </DynamicComponent>
 
         <Navigation>
           <Link

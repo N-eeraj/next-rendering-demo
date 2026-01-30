@@ -38,7 +38,9 @@ async function DynamicRenderingPartialStreaming() {
       </p>
 
       <Suspense fallback={<Skeleton />}>
-        <DynamicComponent label="Stream at" />
+        <DynamicComponent label="Stream at">
+          Using a loading state ensures a predictable, polished user experience, while still leveraging server-side rendering to provide SEO-friendly content once the page is fully streamed to the client.
+        </DynamicComponent>
       </Suspense>
 
       <Navigation

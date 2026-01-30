@@ -23,8 +23,7 @@ const Skeleton = () => {
 
         <div className="mb-8 space-y-2">
           <p className="h-4 w-full rounded bg-gray-300 animate-pulse" />
-          <p className="h-4 w-full rounded bg-gray-300 animate-pulse" />
-          <p className="h-4 w-1/3 rounded bg-gray-300 animate-pulse" />
+          <p className="h-4 w-3/4 rounded bg-gray-300 animate-pulse" />
         </div>
 
         <section className="mt-12 rounded-lg bg-gray-50 p-4 text-center md:p-6">
@@ -33,7 +32,7 @@ const Skeleton = () => {
           <div className="mx-auto flex max-w-md flex-col items-center space-y-2">
             <p className="h-3 w-6/7 rounded bg-gray-200 animate-pulse" />
             <p className="h-3 w-full rounded bg-gray-200 animate-pulse" />
-            <p className="h-3 w-2/9 rounded bg-gray-200 animate-pulse" />
+            <p className="h-3 w-5/6 rounded bg-gray-200 animate-pulse" />
           </div>
         </section>
       </main>

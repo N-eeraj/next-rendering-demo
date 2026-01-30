@@ -7,7 +7,7 @@ const Skeleton = () => {
         <div className="mx-auto flex max-w-md flex-col items-center space-y-2">
           <p className="h-3 w-6/7 rounded bg-gray-200 animate-pulse" />
           <p className="h-3 w-full rounded bg-gray-200 animate-pulse" />
-          <p className="h-3 w-2/9 rounded bg-gray-200 animate-pulse" />
+          <p className="h-3 w-5/6 rounded bg-gray-200 animate-pulse" />
         </div>
       </section>
     </>
