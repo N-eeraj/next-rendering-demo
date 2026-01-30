@@ -31,8 +31,7 @@ function StaticRoutes() {
   return (
     <RoutesRenderingOptions
       title="Static Routes"
-      options={STATIC_RENDERING_OPTIONS}
-      className="mb-8">
+      options={STATIC_RENDERING_OPTIONS}>
       <p className="text-gray-600 text-sm">
         Static routes have fixed URL paths, such as&nbsp;
         <code className="code-block">

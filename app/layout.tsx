@@ -1,26 +1,26 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from "next"
+import { Geist, Geist_Mono } from "next/font/google"
+import "./globals.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
+})
 
 export const metadata: Metadata = {
-  title: "Next Rending Demo",
-  description: "Next.js offers multiple page rendering strategies, each optimized for different use cases. This demo showcases how pages can be rendered, when data is fetched, and what the resulting HTML looks like for users. Explore each page to see the differences in static, server-side, incremental, and client-driven rendering.",
-};
+  title: "Next.js Rendering Demo: Static, Dynamic & SSG",
+  description: "Explore Next.js page rendering: static, server-side, incremental, and client-driven. Learn how each works with this interactive demo.",
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -30,5 +30,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  );
+  )
 }

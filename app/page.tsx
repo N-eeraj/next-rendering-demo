@@ -15,8 +15,10 @@ function Home() {
         incremental, and client-driven rendering.
       </p>
 
-      <StaticRoutes />
-      <DynamicRoutes />
+      <section className="space-y-8">
+        <StaticRoutes />
+        <DynamicRoutes />
+      </section>
     </main>
   )
 }

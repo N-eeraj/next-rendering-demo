@@ -13,14 +13,14 @@ interface Props extends PropsWithChildren {
 function RoutesRenderingOptions({ title, options, className, children }: Props) {
   return (
     <section
-      className={`space-y-2 ${className}`}>
+      className={`flex flex-col gap-y-2 ${className}`}>
       <h2 className="text-2xl font-semibold text-gray-700">
         {title}
       </h2>
 
       {children && children}
 
-      <ul className="space-y-4">
+      <ul className="mt-1 space-y-4">
         {options.map(({ label, url }, index) => (
           <li
             key={index}
@@ -29,7 +29,9 @@ function RoutesRenderingOptions({ title, options, className, children }: Props) 
               href={url}
               className="block size-full p-4 text-gray-800 font-medium hover:text-sky-700 hover:underline"
             >
-              {label}
+              <h3>
+                {label}
+              </h3>
             </Link>
           </li>
         ))}
