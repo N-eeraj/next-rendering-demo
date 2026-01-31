@@ -8,10 +8,10 @@ function BuildLogs() {
         Build Logs
       </h2>
 
-      <section className="w-full space-y-2 p-3 bg-black selection:bg-white text-gray-100 selection:text-gray-900 rounded-sm overflow-x-auto">
+      <code className="block w-full space-y-2 px-2 py-4 bg-black selection:bg-white text-gray-100 selection:text-gray-900 rounded-sm overflow-x-auto">
         <Routes />
         <RenderingMethods />
-      </section>
+      </code>
     </section>
   )
 }

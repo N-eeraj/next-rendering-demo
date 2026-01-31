@@ -1,34 +1,10 @@
-interface StaticRoute {
-  type: "static"
-  path: string
-  revalidate?: string
-  expire?: string
-}
+import { getStaticParams } from "@/app/ssg/dynamic-route/getStaticParams"
+import type {
+  Route,
+  GeneratedRoute,
+} from "@/types"
 
-interface SSGRoute {
-  type: "ssg"
-  path: string
-  preRenderedPaths: Array<Record<string, string>>
-  revalidate?: string
-  expire?: string
-}
-
-interface DynamicRoute {
-  type: "dynamic"
-  path: string
-}
-
-type Route = StaticRoute
-  | DynamicRoute
-  | SSGRoute
-
-const TYPE_SYMBOL = {
-  static: "○",
-  ssg: "●",
-  dynamic: "ƒ",
-}
-
-const routes = ([
+const ROUTES = ([
   {
     type: "static",
     path: "/",
@@ -72,7 +48,8 @@ const routes = ([
   {
     type: "ssg",
     path: "/ssg/dynamic-route/[name]",
-    preRenderedPaths: [],
+    preRenderedPaths: [] as Array<string>,
+    generateStaticParamsFunction: () => getStaticParams(),
   },
   {
     type: "static",
@@ -81,7 +58,10 @@ const routes = ([
   {
     type: "ssg",
     path: "/ssg/dynamic-route/isr/[name]",
-    preRenderedPaths: [],
+    preRenderedPaths: [] as Array<string>,
+    generateStaticParamsFunction: () => getStaticParams(151),
+    revalidate: "1m",
+    expire: "1y",
   },
 
   // dynamic routes with static rendering
@@ -118,47 +98,36 @@ const routes = ([
 ] satisfies Array<Route>)
   .sort((a, b) => a.path.localeCompare(b.path))
 
-function getBracket(index: number) {
-  if (index === routes.length - 1) return "└"
-  if (!index) return "┌"
-  return "├"
+const ssgRoutesPromise = Promise.all(
+  ROUTES.reduce((
+    ssgPaths: Array<Promise<GeneratedRoute>>,
+    { type, path, generateStaticParamsFunction }
+  ) => {
+    if (type === "ssg") {
+      const generatedPathsMap: Promise<GeneratedRoute> = generateStaticParamsFunction()
+        .then((params: Array<Record<string, string>>) => ([
+          path,
+          params
+        ]))
+      ssgPaths.push(generatedPathsMap)
+    }
+    return ssgPaths
+  }, [])
+)
+
+function replaceParams(path: string, params: GeneratedRoute["1"][number]) {
+  return path.replace(/\[([^\]]+)\]/g, (_, key) => {
+    return params[key] ?? `[${key}]`
+  })
 }
 
-function Routes() {
-  return (
-    <table className="text-sm font-mono">
-      <thead>
-        <tr className="underline">
-          <th className="pr-3 text-start">
-            Route (app)
-          </th>
-          <th className="pr-3 text-start">
-            Revalidate
-          </th>
-          <th className="text-start">
-            Expire
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {routes.map(({ type, path, revalidate, expire }, index) => (
-          <tr key={path}>
-            <td className="pl-0 pr-3 whitespace-nowrap">
-              {getBracket(index)}
-              {TYPE_SYMBOL[type]}&nbsp;
-              {path}
-            </td>
-            <td className="pl-0 pr-3 text-end">
-              {revalidate}
-            </td>
-            <td className="px-0 text-end">
-              {expire}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  )
+export async function getBuildRoutes() {
+  const generatedRouteParams = Object.fromEntries(await ssgRoutesPromise)
+  ROUTES.forEach(({ type, path }, index) => {
+    if (type === "ssg") {
+      const generatedPaths = generatedRouteParams[path].map(params => replaceParams(path, params))
+      ROUTES[index].preRenderedPaths = generatedPaths
+    }
+  })
+  return ROUTES
 }
-
-export default Routes
