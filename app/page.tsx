@@ -1,3 +1,4 @@
+import BuildLogs from "./BuildLogs"
 import DynamicRoutes from "./DynamicRoutes"
 import StaticRoutes from "./StaticRoutes"
 
@@ -15,10 +16,12 @@ function Home() {
         incremental, and client-driven rendering.
       </p>
 
-      <section className="space-y-8">
+      <section className="space-y-6 mb-8">
         <StaticRoutes />
         <DynamicRoutes />
       </section>
+
+      <BuildLogs />
     </main>
   )
 }
