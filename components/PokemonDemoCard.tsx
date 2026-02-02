@@ -7,7 +7,7 @@ interface Props extends PropsWithChildren {
 }
 
 function PokemonDemoCard({ label, pokemon, children }: Props) {
-  const dateTime = new Date().toLocaleString("en-IN", {
+  const dateTime = new Date().toLocaleString(undefined, {
     dateStyle: "long",
     timeStyle: "short",
   })
@@ -17,7 +17,7 @@ function PokemonDemoCard({ label, pokemon, children }: Props) {
       <p className="mb-4 text-gray-700">
         {label}:&nbsp;
         <time className="font-mono text-gray-900">
-          {dateTime}
+          {dateTime} (UTC)
         </time>
       </p>
       <div className="inline-block rounded overflow-hidden border border-gray-200">

@@ -10,7 +10,7 @@ interface Props {
 
 async function PreRenderedPages({ currentPath, dynamicRoute, offset = 0, className = "" }: Props) {
   const paths = await getStaticParams(offset)
-  const dateTime = new Date().toLocaleString("en-IN", {
+  const dateTime = new Date().toLocaleString(undefined, {
     dateStyle: "long",
     timeStyle: "short",
   })
@@ -30,7 +30,10 @@ async function PreRenderedPages({ currentPath, dynamicRoute, offset = 0, classNa
       <RoutesList {...routesListPathProps} />
 
       <blockquote className="mt-1 pl-3 py-1.5 bg-gray-100 text-gray-800 text-sm border-l-4 border-gray-500">
-        Pages generated at {dateTime}
+        Pages generated at&nbsp;
+        <time className="font-mono text-gray-900">
+          {dateTime} (UTC)
+        </time>
       </blockquote>
     </section>
   )
